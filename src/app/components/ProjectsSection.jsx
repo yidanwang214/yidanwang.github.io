@@ -9,10 +9,10 @@ const projectsData = [
         id: 1,
         title: "React Personal Website",
         description: "Personal Website built on Next.js, Tailwind CSS and deployed on Vercel",
-        image: '',
+        image: '/images/PersonalWebsite.jpg',
         tag: ["Next.js", "React", "JavaScript", "Web", "All"],
-        gitUrl: '/',
-        previewUrl: '/',
+        gitUrl: 'https://github.com/yidanwang214/yidanwang.github.io',
+        previewUrl: 'https://www.yidanwang214.com/',
     },
     {
         id: 2,
