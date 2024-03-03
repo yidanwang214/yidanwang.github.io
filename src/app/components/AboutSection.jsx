@@ -1,13 +1,14 @@
 "use client";
-import React, {useTransition, useState} from 'react';
+import React, {useState, useTransition, useRef} from 'react';
 import TabButton from './TabButton';
+import {motion, useInView} from "framer-motion";
 
 const TAB_DATA = [
     {
         title: "Skills",
         id: "skills",
         content: (
-            <div className='text-slate-700 '>
+            <div className='text-secondary'>
                 <div >
                     <li >Language</li>
                     <div className='grid grid-cols-10'>
@@ -56,6 +57,8 @@ const TAB_DATA = [
 ]
 
 const AboutSection = () => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, {once: true});
     const[tab, setTab] = useState("skills");
     const[isPending, startTransition] = useTransition();
     const handleTabChange = (id) => {
@@ -65,13 +68,18 @@ const AboutSection = () => {
     };
     return (
       <section className='text-black'>
-        <div className='md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 md:place-items-stretch'>
+        <motion.div
+        ref={ref} 
+        initial={{y: 50, opacity: 0}}
+        animate={isInView ? {y: 0, opacity: 1} : {y: 50, opacity: 0}}
+        transition={{duration: 0.5}}
+        className='md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 md:place-items-stretch'>
             <div className='mt-4 md:mt-0 text-left flex flex-col h-full'>
                 <h2 className='text-4xl font-bold'>About Me</h2>
-                <p className='text-base lg:text-lg text-slate-700 text-justify'>I am proficient in Java, Python, JavaScript/CSS/HTML. Additionally, I am familiar with C++ and C. I have gained hands-on experience with git, React.js, Remix, SQL, and training NLP models. Moreover, I am always eager to acquire new tools and expand my knowledge base.</p>
+                <p className='text-base lg:text-lg text-secondary text-justify'>I am proficient in Java, Python, JavaScript/CSS/HTML. Additionally, I am familiar with C++ and C. I have gained hands-on experience with git, React.js, Remix.js, SQL, and training machine learning models. Moreover, I am always eager to acquire new tools and expand my knowledge base.</p>
                 <br />
-                <p className='text-base lg:text-lg text-slate-700 text-justify'>
-                    In addition to programming, I actively volunteer in various events, run 30 kilometers every week, enjoy music, bake and try out different desserts with my friends.
+                <p className='text-base lg:text-lg text-secondary text-justify'>
+                    In addition to programming, I actively volunteer in various events, run 30 kilometers every week, enjoy music, bake and try out different desserts with family and friends. As you might have noticed, I am madly into pink :)
                 </p>
             </div>
             <div>
@@ -95,11 +103,11 @@ const AboutSection = () => {
                         Experience{" "}
                     </TabButton>
                 </div>
-                <div className='mt-2'>
+                <div className='mt-2 lg:text-lg'>
                     {TAB_DATA.find((t) => t.id === tab).content}
                 </div>
             </div>
-        </div>
+        </motion.div>
       </section>
     );
 };

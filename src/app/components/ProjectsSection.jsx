@@ -8,7 +8,7 @@ const projectsData = [
     {
         id: 1,
         title: "React Personal Website",
-        description: "Personal Website built on Next.js, Tailwind CSS and deployed on Vercel",
+        description: "Developed my personal website using Next.js, Tailwind CSS, and hosted on Vercel. I created this platform to acquaint myself with the fundamentals of Next.js, offering visitors a glimpse into who I am and showcasing my projects.",
         image: '/images/PersonalWebsite.jpg',
         tag: ["Next.js", "React", "JavaScript", "Web", "All"],
         gitUrl: 'https://github.com/yidanwang214/yidanwang.github.io',
@@ -17,16 +17,16 @@ const projectsData = [
     {
         id: 2,
         title: "Sudoku Visualisation",
-        description: "Sudoku game using Python and Pygame library that allows users to fill in the empty grid or press 'enter' to visualise how the backtracking algorithm solves Sudoku",
+        description: "In order to strengthen my understanding in backtracking algorithm and solve Sudoku in different approaches, I built a Sudoku game using Python and Pygame library that allows users to fill in the empty grid or press 'enter' to visualise how the backtracking algorithm solves Sudoku.",
         image: '/images/Sudoku.jpeg',
-        tag: ["Backtracking algorithm", "Python", "Game", "Web", "All"],
+        tag: ["Backtracking algorithm", "Python", "Game", "Algorithm", "All"],
         gitUrl: 'https://github.com/yidanwang214/Sudoku-Backtracking-Visualisation',
         previewUrl: '/',
     },
     {
         id: 3,
         title: "Nokia Snake Game",
-        description: "Nokia Snake Game using JavaScript, HTML and CSS with a pink theme.",
+        description: "This is a Nokia Snake Game using JavaScript, HTML, and CSS, featuring a pink theme. This project holds my nostalgia for one of my favorite childhood games.",
         image: '/images/SnakeGame.jpg',
         tag: ["Vanilla JavaScirpt", "Game", "Web", "All"],
         gitUrl: 'https://github.com/yidanwang214/Retro-Nokia-Snake-Game',
@@ -35,7 +35,7 @@ const projectsData = [
     {
         id: 4,
         title: "Shortest Path Algorithm for Material Transportation - ATSYS Project",
-        description: "Collaborated with teammates to implement the Uniform Cost Search Algorithm generating 5 shortest paths from source to destination.",
+        description: "When undertaking the Software Engineering Project course at the University of Adelaide, I collaborated with teammates to implement the Uniform Cost Search Algorithm. Our goal was to generate five shortest paths from the source to the destination, meeting the needs of AtSys in efficiently transporting materials through converters.",
         image: '/images/ShortestPath.jpg',
         tag: ["Algorithm Design", "UCS algorithm", "Fullstack Project", "Java", "Python", "All"],
         gitUrl: 'https://github.com/yidanwang214/Shortest-Paths-Algorithm-ATSYS-Project',
@@ -74,6 +74,11 @@ const ProjectsSection = () => {
                     onClick={handleTagChange}
                     name="Web"
                     isSelected={tag === "Web"}
+                />
+                <ProjectTag
+                    onClick={handleTagChange}
+                    name="Algorithm"
+                    isSelected={tag === "Algorithm"}
                 />
             </div>
             <ul

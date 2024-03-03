@@ -1,11 +1,14 @@
 "use client";
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
 import GitHubIcon from "../../../public/github-mark.svg";
 import LinkedInIcon from "../../../public/LinkedIn_icon.svg";
 import Link from "next/link";
 import Image from "next/image";
+import {motion, useInView} from "framer-motion";
 
 const EmailSection = () => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
     const [emailSubmitted, setEmailSubmitted] = useState(false);
     const handleSubmit = async (e) =>{
         e.preventDefault();
@@ -32,7 +35,11 @@ const EmailSection = () => {
         }
     };
     return (
-        <section 
+        <motion.section
+        ref={ref}
+        initial={{y: 50,opacity: 0}}
+        animate={isInView ? {y: 0, opacity: 1} : {y: 50, opacity: 0} }
+        transition={{duration: 0.8}}
         id="contact"
         className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
             <div className="z-10">
@@ -118,14 +125,14 @@ const EmailSection = () => {
                     </div>
                         <button
                         type="submit"
-                        className="bg-pink-200 hover:bg-pink-300 font-medium py-2.5 px=5 rounded-lg w-full"
+                        className="bg-primary-200 hover:bg-primary-300 font-medium py-2.5 px=5 rounded-lg w-full"
                         >
                             Send An Email
                         </button>
                 </form>
                 )}
             </div>
-        </section>
+        </motion.section>
     )
 };
 

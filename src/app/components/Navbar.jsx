@@ -24,22 +24,22 @@ const Navbar = () => {
     const [navbarOpen, setNavbarOpen] = useState(false);
 
     return(
-        <nav className="fixed top-0 left-0 right-0 z-10 bg-pink-200 bg-opacity-50">
+        <nav className="fixed top-0 left-0 right-0 z-10 bg-primary-200 bg-opacity-50">
             <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto p-4 px-4">
-                <Link href={'/'} className="text-2xl md:text-5xl text-black font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to bg-pink-500">
+                <Link href={'/'} className="text-2xl md:text-5xl text-black font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to bg-primary-500">
                     YW
                 </Link>
                 <div className="mobile-menu block md:hidden">
                     {!navbarOpen ? (
                         <button
                         onClick={() => setNavbarOpen(true)}
-                        className="flex items-center px-3 py-2  border rounded border-black hover:text-pink-500 hover:border-pink-300">
+                        className="flex items-center px-3 py-2  border rounded border-black hover:text-primary-500 hover:border-primary-300">
                             <Bars3Icon className="h-5 w-5"/>
                         </button>
                     ):(
                         <button
                         onClick={() => setNavbarOpen(false)}
-                        className="flex items-center px-3 py-2  border rounded border-black hover:text-pink-500 hover:border-pink-300">
+                        className="flex items-center px-3 py-2  border rounded border-black hover:text-primary-500 hover:border-primary-300">
                             <XMarkIcon className="h-5 w-5"/>
                         </button>
                     )}
